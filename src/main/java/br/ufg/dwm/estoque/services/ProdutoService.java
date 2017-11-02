@@ -28,6 +28,16 @@ public class ProdutoService {
     public Produto consultarProdutoPorId(Long id) {
         return produtoRepository.findOne(id);
     }
+    
+    public Produto consultarProdutoPorCodigo(String codigo) {
+        List<Produto> produtos = (List<Produto>) produtoRepository.findAll(); 
+    	for (Produto produto : produtos) {
+			if(produto.getCodigo().equals(codigo)) {
+				return produto;
+			}
+		}
+    	return null;
+    }
 
     public List<Produto> listarProdutos() {
         return (List<Produto>) produtoRepository.findAll();

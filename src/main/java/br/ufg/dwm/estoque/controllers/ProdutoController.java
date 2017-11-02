@@ -32,6 +32,11 @@ public class ProdutoController {
         return produtoService.consultarProdutoPorId(id);
     }
 
+    @GetMapping("/codigo/{codigo}")
+    public Produto consultarProdutoPorId(@PathVariable String codigo){
+        return produtoService.consultarProdutoPorCodigo(codigo);
+    }
+
     @GetMapping()
     public List<Produto> listar(){
         return produtoService.listarProdutos();
